@@ -1,0 +1,25 @@
+{% extends 'test_admin.html' %}
+{% load staticfiles %}
+{% block title %}查看考试{% endblock %}
+{% block css %} <link href="{% static 'css/table.css' %}" rel="stylesheet"/> {% endblock %}
+{% block content %}
+    <div class="container">
+          <table class="hovertable">
+            <tr>
+                <th>考题号</th><th>老师</th><th>学生</th><th>题目</th><th>学生答案</th><th>学生成绩</th>
+            </tr>
+              {% for word_test,teacher_name,student_name,teacher_text,student_answer,student_grade in result_all %}
+                  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+                      <td>{{ word_test }}</td>
+                      <td>{{ teacher_name }}</td>
+                      <td>{{ student_name }}</td>
+                      <td>{{ teacher_text }}</td>
+                      <td>{{ student_answer }}</td>
+                      <td>{{ student_grade }}</td>
+                  </tr>
+              {% endfor %}
+        </table>
+    </div> <!-- /container -->
+{% endblock %}
+
+
